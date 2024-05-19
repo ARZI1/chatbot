@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="stylesheet" href="{% block stylesheet %}{% endblock %}">
+</head>
+<body>
+    <div class="navigation-header">
+        <h1>{% block header %}{% endblock %}</h1>
+        <div class="navigation-button-container">
+            <a href="{{ url_for('chatbot') }}"><button class="navigation-button">Chatbot</button></a>
+            <a href="{{ url_for('article_generator') }}"><button class="navigation-button">Article generator</button></a>
+            <a href="{{ url_for('compute_server') }}"><button class="navigation-button">Compute server configuration</button></a>
+            <a href="{{ url_for('index') }}"><button class="navigation-button">About</button></a>
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+</body>
+</html>

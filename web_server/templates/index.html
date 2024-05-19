@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block stylesheet %}{{ url_for('static', filename='index.css') }}{% endblock %}
+
+{% block header %}About the project{% endblock %}
+
+{% block content %}
+    <div class="main-content">
+        <div class="chatbot-description">
+            <h2>About this project</h2>
+            <p>
+                The purpose of this website is to present two Natural Language Processing (NLP) neural networks that are part of a final project in an artificial intelligence course. Both models are powered by the transformer architecture found in other Generative Pretrained Transformer (GPT) models. In order to run these models in parallel and allow multiple users to run them at the same time, a network of computational servers was implemented. Each server hosts a model and is open to inference requests, which are dispatched by a central server.
+                <br>
+                <br>
+                The first model was trained to write news articles based on the input a user gives it. The input can be the first word of the article, first line, first paragraph or be left blank. Dataset wise, the model was trained on some 312,000 news articles sourced from CNN. It boasts 6 transformer decoder units stacked atop each other, as well as embedding, encoding and dense layers. The model has a total of 10 million trainable parameters, and was trained on an RTX 2060 for around 40 hours.
+                <br>
+                <br>
+                The second model is an upscaled version of the first model, containing 12 transformer blocks and higher dimensionality for a grand total of 125 million trainable parameters. Because of its size, training such a model from scratch is infeasible. Therefore, a pretrained model was obtained from the Open Pretrained Transformers project, which was trained on a general dataset. In order to fine tune the model for question answering a dataset was created by combining Stanford's LLaMa dataset with custom generated questions, for a total of 54,000 question-answer pairs. The model was trained for 8 hours on a T4 GPU provided by Google Colab.
+            </p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block stylesheet %}{{ url_for('static', filename='compute_server.css') }}{% endblock %}
+
+{% block header %}Compute server configuration{% endblock %}
+
+{% block content %}
+    <div class="servers-container">
+        <h1>Compute Servers</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Machine Name</th>
+                    <th>IP Address</th>
+                    <th>Port</th>
+                    <th>Model Name</th>
+                    <th>Compute device</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for server in server_list %}
+                    <tr>
+                        <td>{{ server.machine_name }}</td>
+                        <td>{{ server.ip }}</td>
+                        <td>{{ server.port }}</td>
+                        <td>{{ server.model_name }}</td>
+                        <td>{{ server.tensorflow_device }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
